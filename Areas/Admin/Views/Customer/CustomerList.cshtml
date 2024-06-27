@@ -1,0 +1,102 @@
+﻿@model IEnumerable<CustomerModel>
+
+@{
+    Layout = "_Layout";
+}
+
+
+<h2>Customers List</h2>
+<hr />
+<p>
+    <a class="btn btn-sm btn-outline-success" asp-controller="Customer" asp-action="Edit">Add New Customer</a>
+</p>
+
+@*<table class="table table-responsive table-striped">
+    <thead>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Address</th>
+    <th>Contact</th>
+    <th>Actions</th>
+    </thead>
+    <tbody>
+        @foreach (var cust in Model)
+        {
+            <tr>
+                <td>
+                    @cust.CustomerID
+                </td>
+                <td>
+                    @cust.CustomerName
+                </td>
+                <td>
+                    @cust.Email
+                </td>
+                <td>
+                    @cust.Password
+                </td>
+                <td>
+                    @cust.Address
+                </td>
+                <td>
+                    @cust.Contact
+                </td>
+                <th>
+                    <a href="@Url.Action("Edit","Customer",new {CustomerID = cust.CustomerID})" class="btn btn-dark">Edit</a>
+                </th>
+                <th>
+                    <a href="@Url.Action("Delete","Customer",new {CustomerID = cust.CustomerID})" class="btn btn-danger" data-confirm="Are you sure you want to delete this student?">Delete</a>
+                </th>
+            </tr>
+
+        }
+        <div class="alert alert-success" role="alert">
+            @TempData["Message"]
+            @TempData["Error"]
+        </div>
+    </tbody>
+</table>*@
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            GetData();
+        })
+
+        function GetData() {
+            $.ajax({
+                url: "http://localhost:5176/api/Customer",
+                method: "GET",
+                success: function (res) {
+                    var tableString = "";
+                    $.each(res, function (index, value) {
+                        console.log(value);
+                        tableString += "<tr><td>" + value.CustomerID + "</td><td>" + value.CustomerName + "</td><td>" + value.Email + "</td><td>" + value.Address + "</td><td>" + value.Contact + "</td></tr>";
+                    });
+                    $("#table1").append(tableString);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+}
+
+<div class="container">
+    <table id="table1" class="table table-dark">
+        <thead>
+            <tr>
+                <th>CustomerID</th>
+                <th>CustomerName</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>

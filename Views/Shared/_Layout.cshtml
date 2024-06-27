@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HealthifyConsume</title>
+    <@*link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/HealthifyConsume.styles.css" asp-append-version="true" />*@
+    <link rel="shortcut icon" href="~/images/favicon.ico">
+
+        <!-- Bootstrap CSS -->
+        <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Font Awesome CSS -->
+        <link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Custom CSS -->
+        <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+
+        <!-- BEGIN CSS for this page -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"/>
+        <!-- END CSS for this page -->
+</head>
+<body>
+    <header>
+        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HealthifyConsume</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>*@
+    </header>
+    
+	
+<div id="main">
+
+	<!-- top bar navigation -->
+	<div class="headerbar">
+
+		<!-- LOGO -->
+        <div class="headerbar-left">
+			<a href="index.html" class="logo"><img alt="logo" src="~/images/avatars/logo3.png" /> @*<span>Admin</span>*@</a>
+        </div>
+
+        <nav class="navbar-custom">
+
+                    <ul class="list-inline float-right mb-0">
+
+						<li class="list-inline-item dropdown notif">
+                            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <i class="fa fa-fw fa-question-circle"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-arrow-success dropdown-lg">
+                                <!-- item-->
+                                <div class="dropdown-item noti-title">
+                                    <h5><small>Help and Support</small></h5>
+                                </div>
+
+                                <!-- item-->
+                                <a target="_blank" href="https://www.pikeadmin.com" class="dropdown-item notify-item">                                    
+                                    <p class="notify-details ml-0">
+                                        <b>Do you want custom development to integrate this theme?</b>
+                                        <span>Contact Us</span>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a target="_blank" href="https://www.pikeadmin.com/pike-admin-pro" class="dropdown-item notify-item">                                    
+                                    <p class="notify-details ml-0">
+                                        <b>Do you want PHP version of the theme that save dozens of hours of work?</b>
+                                        <span>Try Pike Admin PRO</span>
+                                    </p>
+                                </a>                               
+
+                                <!-- All-->
+                                <a title="Clcik to visit Pike Admin Website" target="_blank" href="https://www.pikeadmin.com" class="dropdown-item notify-item notify-all">
+                                    <i class="fa fa-link"></i> Visit Pike Admin Website
+                                </a>
+
+                            </div>
+                        </li>
+						
+                        <li class="list-inline-item dropdown notif">
+                            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <i class="fa fa-fw fa-envelope-o"></i><span class="notif-bullet"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-arrow-success dropdown-lg">
+                                <!-- item-->
+                                <div class="dropdown-item noti-title">
+                                    <h5><small><span class="label label-danger pull-xs-right">12</span>Contact Messages</small></h5>
+                                </div>
+
+                                <!-- item-->
+                                <a href="#" class="dropdown-item notify-item">                                    
+                                    <p class="notify-details ml-0">
+                                        <b>Jokn Doe</b>
+                                        <span>New message received</span>
+                                        <small class="text-muted">2 minutes ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="#" class="dropdown-item notify-item">                                    
+                                    <p class="notify-details ml-0">
+                                        <b>Michael Jackson</b>
+                                        <span>New message received</span>
+                                        <small class="text-muted">15 minutes ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="#" class="dropdown-item notify-item">                                    
+                                    <p class="notify-details ml-0">
+                                        <b>Foxy Johnes</b>
+                                        <span>New message received</span>
+                                        <small class="text-muted">Yesterday, 13:30</small>
+                                    </p>
+                                </a>
+
+                                <!-- All-->
+                                <a href="#" class="dropdown-item notify-item notify-all">
+                                    View All
+                                </a>
+
+                            </div>
+                        </li>
+                        
+						<li class="list-inline-item dropdown notif">
+                            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <i class="fa fa-fw fa-bell-o"></i><span class="notif-bullet"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-lg">
+								<!-- item-->
+                                <div class="dropdown-item noti-title">
+                                    <h5><small><span class="label label-danger pull-xs-right">5</span>Allerts</small></h5>
+                                </div>
+								
+                                <!-- item-->
+                                <a href="#" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-faded">
+                                        <img src="assets/images/avatars/avatar2.png" alt="img" class="rounded-circle img-fluid">
+                                    </div>
+                                    <p class="notify-details">
+                                        <b>John Doe</b>
+                                        <span>User registration</span>
+                                        <small class="text-muted">3 minutes ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="#" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-faded">
+                                        <img src="assets/images/avatars/avatar3.png" alt="img" class="rounded-circle img-fluid">
+                                    </div>
+                                    <p class="notify-details">
+                                        <b>Michael Cox</b>
+                                        <span>Task 2 completed</span>
+                                        <small class="text-muted">12 minutes ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="#" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-faded">
+                                        <img src="assets/images/avatars/avatar4.png" alt="img" class="rounded-circle img-fluid">
+                                    </div>
+                                    <p class="notify-details">
+                                        <b>Michelle Dolores</b>
+                                        <span>New job completed</span>
+                                        <small class="text-muted">35 minutes ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- All-->
+                                <a href="#" class="dropdown-item notify-item notify-all">
+                                    View All Allerts
+                                </a>
+
+                            </div>
+                        </li>
+
+                        <li class="list-inline-item dropdown notif">
+                            <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <img src="~/images/avatars/adminpro.jpeg" alt="Profile image" class="avatar-rounded">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown">
+                                <!-- item-->
+                                <div class="dropdown-item noti-title">
+                                    <h5 class="text-overflow"><small>Hello, admin</small> </h5>
+                                </div>
+
+                                <!-- item-->
+                                <a asp-action="Profile" asp-controller="Home" class="dropdown-item notify-item">
+                                    <i class="fa fa-user"></i> <span>Profile</span>
+                                </a>
+
+                                <!-- item-->
+                                <a asp-area="Login" asp-controller="Register" asp-action="Logout" class="dropdown-item notify-item">
+                                    <i class="fa fa-power-off"></i> <span>Logout</span>
+                                </a>
+
+								<!-- item-->
+                                <a target="_blank" href="https://www.pikeadmin.com" class="dropdown-item notify-item">
+                                    <i class="fa fa-external-link"></i> <span>Pike Admin</span>
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <ul class="list-inline menu-left mb-0">
+                        <li class="float-left">
+                            <button class="button-menu-mobile open-left">
+								<i class="fa fa-fw fa-bars"></i>
+                            </button>
+                        </li>                        
+                    </ul>
+
+        </nav>
+
+	</div>
+	<!-- End Navigation -->
+	
+ 
+	<!-- Left Sidebar -->
+	<div class="left main-sidebar">
+	
+		<div class="sidebar-inner leftscroll">
+
+			<div id="sidebar-menu">
+        
+			<ul>
+
+					<li class="submenu">
+                            <a asp-action="GET" asp-controller="Dashboard"><i class="fa fa-fw fa-bars"></i><span> Dashboard </span> </a>
+                    </li>
+
+					
+
+					<li class="submenu">
+                        <a class="active pro" href="#"><i class="fa fa-fw fa-star"></i><span>Admin</span> <span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">								
+                                
+								@*<li><a href="pro-settings.html">Settings</a></li>*@
+                                <li><a asp-area="Admin" asp-action="Profile" asp-controller="Home">My Profile</a></li>
+                                <li><a asp-area="Admin" asp-action="GET" asp-controller="Customer">Customers</a></li>
+                                <li><a asp-area="Admin" asp-action="GET" asp-controller="Product">Products</a></li>
+                                <li><a asp-area="Admin" asp-action="GET" asp-controller="Category">Categories</a></li>
+								@*<li><a href="pro-pages.html">Pages</a></li>*@
+                            </ul>
+                    </li>
+					
+            </ul>
+
+            <div class="clearfix"></div>
+
+			</div>
+        
+			<div class="clearfix"></div>
+
+		</div>
+
+	</div>
+        <div class="content-page">
+            <div class="content">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        </div>
+
+	<footer class="footer">
+		<span class="text-right">
+			Copyright <a target="_blank" href="#">My Website</a>
+		</span>
+		<span class="float-right">
+			Powered by <a target="_blank" href="https://www.pikeadmin.com"><b>KAVAN</b></a>
+		</span>
+	</footer>
+
+	<script src="~/js/modernizr.min.js"></script>
+	<script src="~/js/jquery.min.js"></script>
+	<script src="~/js/moment.min.js"></script>
+
+	<script src="~/js/popper.min.js"></script>
+	<script src="~/js/bootstrap.min.js"></script>
+
+	<script src="~/js/detect.js"></script>
+	<script src="~/js/fastclick.js"></script>
+	<script src="~/js/jquery.blockUI.js"></script>
+	<script src="~/js/jquery.nicescroll.js"></script>
+
+	<!-- App js -->
+	<script src="~/js/pikeadmin.js"></script>
+
+	<!-- BEGIN Java Script for this page -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
+	<!-- Counter-Up-->
+	<script src="~/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
+	<script src="~/plugins/counterup/jquery.counterup.min.js"></script>
+
+	<script>
+		$(document).ready(function () {
+			// data-tables
+			$('#example1').DataTable();
+
+			// counter-up
+			$('.counter').counterUp({
+				delay: 10,
+				time: 600
+			});
+		});
+	</script>
+
+	<script>
+		var ctx1 = document.getElementById("lineChart").getContext('2d');
+		var lineChart = new Chart(ctx1, {
+			type: 'bar',
+			data: {
+				labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+				datasets: [{
+					label: 'Dataset 1',
+					backgroundColor: '#3EB9DC',
+					data: [10, 14, 6, 7, 13, 9, 13, 16, 11, 8, 12, 9]
+				}, {
+					label: 'Dataset 2',
+					backgroundColor: '#EBEFF3',
+					data: [12, 14, 6, 7, 13, 6, 13, 16, 10, 8, 11, 12]
+				}]
+
+			},
+			options: {
+				tooltips: {
+					mode: 'index',
+					intersect: false
+				},
+				responsive: true,
+				scales: {
+					xAxes: [{
+						stacked: true,
+					}],
+					yAxes: [{
+						stacked: true
+					}]
+				}
+			}
+		});
+
+
+		var ctx2 = document.getElementById("pieChart").getContext('2d');
+		var pieChart = new Chart(ctx2, {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [12, 19, 3, 5, 2, 3],
+					backgroundColor: [
+						'rgba(255,99,132,1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',
+						'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'
+					],
+					label: 'Dataset 1'
+				}],
+				labels: [
+					"Red",
+					"Orange",
+					"Yellow",
+					"Green",
+					"Blue"
+				]
+			},
+			options: {
+				responsive: true
+			}
+
+		});
+
+
+		var ctx3 = document.getElementById("doughnutChart").getContext('2d');
+		var doughnutChart = new Chart(ctx3, {
+			type: 'doughnut',
+			data: {
+				datasets: [{
+					data: [12, 19, 3, 5, 2, 3],
+					backgroundColor: [
+						'rgba(255,99,132,1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',
+						'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'
+					],
+					label: 'Dataset 1'
+				}],
+				labels: [
+					"Red",
+					"Orange",
+					"Yellow",
+					"Green",
+					"Blue"
+				]
+			},
+			options: {
+				responsive: true
+			}
+
+		});
+	</script>
+	<!-- END Java Script for this page -->
+
+    @*<footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - HealthifyConsume - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>*@
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

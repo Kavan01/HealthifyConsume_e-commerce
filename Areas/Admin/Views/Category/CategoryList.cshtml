@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CategoryModel>
+
+@{
+    Layout = "_Layout";
+}
+
+
+<h2>Categories List</h2>
+<hr />
+<p>
+    <a class="btn btn-sm btn-outline-success" asp-controller="Category" asp-action="Edit">Add New Category</a>
+</p>
+
+<table class="table table-responsive table-striped">
+    <thead>
+        <th>CategoryID</th>
+        <th>CategoryName</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        @foreach (var cat in Model)
+        {
+            <tr>
+            <td>
+                @cat.CategoryID
+            </td>
+            <td>
+                @cat.CategoryName
+            </td>
+            
+            <th>
+                <a href="@Url.Action("Edit","Category",new {CategoryID = cat.CategoryID})" class="btn btn-dark" >Edit</a>
+            </th>
+            <th>
+                <a href="@Url.Action("Delete","Category",new {CategoryID = cat.CategoryID})" class="btn btn-danger" data-confirm="Are you sure you want to delete this student?">Delete</a>
+            </th>
+            </tr>
+           
+        }
+        <div class="alert alert-success" role="alert">
+            @TempData["Message"]
+            @TempData["Error"]
+        </div>
+    </tbody>
+</table>
+    
